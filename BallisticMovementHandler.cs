@@ -18,6 +18,8 @@ public class BallisticMovementHandler : MonoBehaviour
     public Vector3 Acceleration = new Vector3(0.0f, 0.0f, 0.0f);
     public Vector3 Direction = new Vector3(0.0f, 0.0f, 0.0f);
 
+    public float FlightTime = 0.0f;
+
     private int cntr = 49;
     private GameObject newObj;
 
@@ -32,6 +34,10 @@ public class BallisticMovementHandler : MonoBehaviour
     }
 
     void FixedUpdate() {
+        if(gameObject.transform.position.y > 0.0f && StopOnZeroY) {
+            FlightTime += Time.fixedDeltaTime;
+        }
+
         Acceleration.x = -Drag * Speed.x;
         Acceleration.y =  -Drag * Speed.y - Grav;
         Acceleration.z = -Drag * Speed.z;

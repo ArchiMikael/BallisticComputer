@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BallisticComputer : MonoBehaviour
 {
+    public float HorzAngle = 0.0f;
+
     public float HorzOffset = 0.0f;
     public float VertOffset = 0.0f;
     public float InitialSpeed = 0.0f;
@@ -38,6 +40,7 @@ public class BallisticComputer : MonoBehaviour
             ProjMovHndlr.Drag = Drag;
             ProjMovHndlr.InitialSpeed = InitialSpeed;
             ProjMovHndlr.InitialVertAngle = PredictedAngle;
+            ProjMovHndlr.InitialHorzAngle = HorzAngle;
             ProjMovHndlr.MarkTrajectory = true;
             Compute = false;
         }
